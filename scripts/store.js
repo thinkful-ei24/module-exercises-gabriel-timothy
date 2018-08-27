@@ -13,7 +13,7 @@ const store = (function() {
   let searchTerm = '';
 
   const findById = function(id) {
-    items.find(item => {
+    return items.find(item => {
       return item.id === id;
     });
   };
@@ -54,6 +54,14 @@ const store = (function() {
     });
   };
 
+  const toggleCheckedFilter = function() {
+    this.hideCheckedItems = !this.hideCheckedItems;
+  };
+
+  const setSearchTerm = function(search) {
+    this.searchTerm = search;
+  };
+
   return {
     items,
     hideCheckedItems,
@@ -62,6 +70,8 @@ const store = (function() {
     addItem,
     findAndToggleChecked,
     findAndUpdateName,
-    findAndDelete
+    findAndDelete,
+    toggleCheckedFilter,
+    setSearchTerm
   };
 })();
