@@ -1,8 +1,6 @@
 /* global store, cuid, Item */
 'use strict';
 
-
-
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function() {
   function generateItemElement(item) {
@@ -57,17 +55,15 @@ const shoppingList = (function() {
   }
 
   function addItemToShoppingList(itemName) {
-    try{
+    try {
       Item.validateName(itemName);
       const newItem = Item.create(itemName);
       store.items.push(newItem);
-      render()
+      render();
     } catch (error) {
       console.log(`Cannot add item: ${error.message}`);
     }
-
-}
-
+  }
 
   function handleNewItemSubmit() {
     $('#js-shopping-list-form').submit(function(event) {
